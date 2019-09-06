@@ -7,7 +7,7 @@ const Title = styled.h1`
 
 
 const Home = () => (
-    <Title>Seccion de confernecias</Title>
+    <Title>Speakers</Title>
 )
 
 export default Home;
