@@ -24,8 +24,9 @@ const theme = {
   color3: "#00689E",
   color4: "#19F3FF",
   color5: "#0C7489",
-  black: "#292929",
-  get gradient(){return `linear-gradient(to left,${this.color1},${this.color2})`}
+  dark: "#292929",
+  light: "#ffffff",
+  get gradient(){return `linear-gradient(to left,${this.color1},${this.dark})`}
 };
 
 class Page extends Component {
