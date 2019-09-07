@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Meta from "./Meta";
 import Nav from "./Nav";
-import  { ThemeProvider, createGlobalStyle } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 const GlobalStyled = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Proza+Libre&display=swap');
@@ -25,7 +25,7 @@ const theme = {
   color4: "#19F3FF",
   color5: "#0C7489",
   black: "#292929",
-  bs: "#ffffff"
+  get gradient(){return `linear-gradient(to left,${this.color1},${this.color2})`}
 };
 
 class Page extends Component {

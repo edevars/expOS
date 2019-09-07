@@ -13,17 +13,8 @@ const StyledLink = styled.a`
 `
 
 const StyledNav = styled.nav`
-  background: #43cea2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #185a9d,
-    #43cea2
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #185a9d,
-    #43cea2
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: ${props => props.theme.color1}; /* fallback for old browsers */
+  background: ${props => props.theme.gradient};
   height:  80px;
   display: flex;
   justify-content: flex-end;
