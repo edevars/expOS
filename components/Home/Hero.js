@@ -25,20 +25,30 @@ const StyledHero = styled.div`
   }
 `;
 
-const Logo = styled.img`
+const StyledWrapper = styled.div`
   position: absolute;
-  width: 40%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+`;
+
+const Logo = styled.img`
+  width: 80%;
   height: auto;
   z-index: 2;
   margin-top: 20vh;
 `;
 
-const Counter = styled.h1`
+const Title = styled.h1`
   color: ${props => props.theme.light};
-  font-size: 46px;
-  position: absolute;
-  z-index: 2;
-  margin-top: 40vh;
+  margin: 40px 0px 0px;
+  font-size: 3.5rem;
+`;
+
+const Counter = styled.h2`
+  color: ${props => props.theme.light_dimmed};
+  font-size: 2.3rem;
 `;
 
 const Mask = styled.div`
@@ -79,7 +89,7 @@ class Hero extends Component {
     let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    return "Solo faltan " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    return days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   };
 
   render() {
@@ -88,9 +98,12 @@ class Hero extends Component {
         <video className="myVideo" muted loop ref="vidRef">
           <source src={video} type="video/mp4" />
         </video>
-        <Logo src={logo}></Logo>
         <Mask></Mask>
-        <Counter>{this.calculateDate()}</Counter>
+        <StyledWrapper>
+          <Logo src={logo}></Logo>
+          <Title>Solo falta!</Title>
+          <Counter>{this.calculateDate()}</Counter>
+        </StyledWrapper>
       </StyledHero>
     );
   }
