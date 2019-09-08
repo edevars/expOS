@@ -1,13 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-
-const Title = styled.h1`
-    color: #ff009d;
-`;
-
+import React from "react";
+import styled from "styled-components";
+import Hero from "../components/Home/Hero";
 
 const Home = () => (
-    <Title>Bienvenido a ExpOS</Title>
-)
+  <>
+    <Hero></Hero>
+  </>
+);
 
 export default Home;
