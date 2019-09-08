@@ -21,6 +21,7 @@ const theme = {
   color4: "#19F3FF",
   color5: "#340044",
   dark: "#292929",
+  grey: "#656D7A",
   light: "#ffffff",
   light_dimmed: "#F6F9F9",
   get gradient() {
