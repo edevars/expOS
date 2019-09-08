@@ -58,13 +58,29 @@ const StyledLink = styled.a`
   }
 `;
 
-const StyledNav = styled.nav`
+const Bar = styled.nav`
   background: ${props => props.theme.color1}; /* fallback for old browsers */
   background: ${props => props.theme.gradient};
   height: 80px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  opacity: 0.6;
+`;
+
+const StyledNav = styled.nav`
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
 `;
 
 const Registrarse = styled.button`
@@ -99,19 +115,22 @@ const IniciarSesion = styled.button`
 `;
 
 const Nav = () => (
-  <StyledNav>
-    <Link href="/">
-      <StyledLink>Home</StyledLink>
-    </Link>
-    <Link href="/speakers">
-      <StyledLink>Confernecias</StyledLink>
-    </Link>
-    <Link href="/workshops">
-      <StyledLink>workshops</StyledLink>
-    </Link>
-    <Registrarse>Registrarse</Registrarse>
-    <IniciarSesion>Iniciar Sesion</IniciarSesion>
-  </StyledNav>
+  <>
+    <Bar></Bar>
+    <StyledNav>
+      <Link href="/">
+        <StyledLink>Home</StyledLink>
+      </Link>
+      <Link href="/speakers">
+        <StyledLink>Speakers</StyledLink>
+      </Link>
+      <Link href="/workshops">
+        <StyledLink>Workshops</StyledLink>
+      </Link>
+      <Registrarse>Registrarse</Registrarse>
+      <IniciarSesion>Iniciar Sesion</IniciarSesion>
+    </StyledNav>
+  </>
 );
 
 export default Nav;
