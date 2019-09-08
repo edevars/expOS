@@ -28,9 +28,19 @@ const StyledHero = styled.div`
 
 const Logo = styled.img`
   position: absolute;
-  z-index: 1;
+  width: 60%;
+  height: auto;
+  z-index: 2;
 `;
 
+const Mask = styled.div`
+  position: absolute;
+  background: ${props => props.theme.color1}; 
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  z-index: 1;
+`;
 
 class Hero extends Component {
   constructor() {
@@ -48,6 +58,7 @@ class Hero extends Component {
           <source src={video} type="video/mp4" />
         </video>
         <Logo src={logo}></Logo>
+        <Mask></Mask>
       </StyledHero>
     );
   }
