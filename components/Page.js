@@ -11,6 +11,7 @@ body {
     font-size: 12px;
     margin: 0;
     padding: 0;
+    background-color: #F6F9F9;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -26,6 +27,7 @@ const theme = {
   color5: "#340044",
   dark: "#292929",
   light: "#ffffff",
+  light_dimmed: "#f6f6f6",
   get gradient(){return `linear-gradient(to left,${this.color1},${this.color5})`}
 };
 
