@@ -6,6 +6,7 @@ import logo from "../../images/logo.png";
 const StyledHero = styled.div`
   width: 100vw;
   height: 80vh;
+  min-height: 650px;
   position: relative;
   background-position: center;
   background-size: cover;

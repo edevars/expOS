@@ -50,6 +50,9 @@ const Subtitle = styled.h3`
 
 const DescriptionWrapper = styled.div`
   margin: 15px 0px 0px 20px;
+  p{
+    font-size: .8rem;
+  }
 `;
 
 const InfoContainer = () => (
@@ -58,28 +61,28 @@ const InfoContainer = () => (
       <StyledFontAwesomeIcon icon={faMapMarkerAlt} />
       <DescriptionWrapper>
         <Subtitle>UPIITA IPN</Subtitle>
-        <p>Descripcion</p>
+        <p>Av Instituto Politécnico Nacional 2580, La Laguna Ticoman, 07340 Ciudad de México, CDMX</p>
       </DescriptionWrapper>
     </Item>
     <Item>
       <StyledFontAwesomeIcon icon={faCalendarAlt} />
       <DescriptionWrapper>
         <Subtitle>3 dias de actividades</Subtitle>
-        <p>Descripcion</p>
+        <p>18,19 y 20 de septiembre</p>
       </DescriptionWrapper>
     </Item>
     <Item>
       <StyledFontAwesomeIcon icon={faMicrophoneAlt} />
       <DescriptionWrapper>
         <Subtitle>Mas de 10 speakers</Subtitle>
-        <p>Descripcion</p>
+        <p>Expertos y entusiastas del software libre</p>
       </DescriptionWrapper>
     </Item>
     <Item id="last">
       <StyledFontAwesomeIcon icon={faTools} />
       <DescriptionWrapper>
         <Subtitle>5 workshops</Subtitle>
-        <p>Descripcion</p>
+        <p>Aprende cosas nuevas en nuestros diferentes talleres</p>
       </DescriptionWrapper>
     </Item>
   </Wrapper>
