@@ -58,26 +58,15 @@ const StyledLink = styled.a`
   }
 `;
 
-const Bar = styled.nav`
+
+const StyledNav = styled.nav`
   background: ${props => props.theme.color1}; /* fallback for old browsers */
   background: ${props => props.theme.gradient};
   height: 80px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  width: 100%;
-  opacity: 0.6;
-`;
-
-const StyledNav = styled.nav`
-  height: 80px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: fixed;
+  position: relative;
   top: 0;
   z-index: 2;
   width: 100%;
@@ -116,7 +105,6 @@ const IniciarSesion = styled.button`
 
 const Nav = () => (
   <>
-    <Bar></Bar>
     <StyledNav>
       <Link href="/">
         <StyledLink>Home</StyledLink>
