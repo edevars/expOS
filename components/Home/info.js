@@ -38,7 +38,7 @@ const Item = styled.li`
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   color: ${props => props.theme.color1};
-  width: 30px;
+  font-size: 40px;
   margin: auto 0;
 `;
 
