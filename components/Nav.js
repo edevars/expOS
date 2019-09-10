@@ -1,5 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
+import Login from "./modals/login";
+import React, { useState } from "react";
 
 const StyledLink = styled.a`
   color: white;
@@ -58,7 +60,6 @@ const StyledLink = styled.a`
   }
 `;
 
-
 const StyledNav = styled.nav`
   background: ${props => props.theme.color1}; /* fallback for old browsers */
   background: ${props => props.theme.gradient};
@@ -103,22 +104,31 @@ const IniciarSesion = styled.button`
   }
 `;
 
-const Nav = () => (
-  <>
-    <StyledNav>
-      <Link href="/">
-        <StyledLink>Home</StyledLink>
-      </Link>
-      <Link href="/speakers">
-        <StyledLink>Speakers</StyledLink>
-      </Link>
-      <Link href="/workshops">
-        <StyledLink>Workshops</StyledLink>
-      </Link>
-      <Registrarse>Registrarse</Registrarse>
-      <IniciarSesion>Iniciar Sesion</IniciarSesion>
-    </StyledNav>
-  </>
-);
+const Nav = () => {
+  const [modalVisible, setModalVisible] = useState(true);
+
+  function openModal() {
+    setModalVisible(!modalVisible);
+  }
+
+  return (
+    <>
+      <StyledNav>
+        <Link href="/">
+          <StyledLink>Home</StyledLink>
+        </Link>
+        <Link href="/speakers">
+          <StyledLink>Speakers</StyledLink>
+        </Link>
+        <Link href="/workshops">
+          <StyledLink>Workshops</StyledLink>
+        </Link>
+        <Registrarse onClick={openModal}>Registrarse</Registrarse>
+        <IniciarSesion>Iniciar Sesion</IniciarSesion>
+      </StyledNav>
+      {modalVisible && <Login openModal={openModal}></Login>}
+    </>
+  );
+};
 
 export default Nav;
