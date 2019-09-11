@@ -106,7 +106,7 @@ const IniciarSesion = styled.button`
 `;
 
 const Nav = () => {
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   function openModal() {
     setModalVisible(!modalVisible);
