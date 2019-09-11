@@ -83,7 +83,7 @@ const Registrarse = styled.button`
   font-size: 1.05rem;
   font-weight: bold;
   outline: none;
-
+  margin-right: 50px;
   &:hover {
     cursor: pointer;
   }
@@ -98,6 +98,7 @@ const IniciarSesion = styled.button`
   border-radius: 5px;
   font-size: 1.05rem;
   font-weight: bold;
+  margin-right: 50px;
   outline: none;
   &:hover {
     cursor: pointer;
