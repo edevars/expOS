@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import Login from "./modals/login";
+import SignIn from "./modals/signIn";
 import React, { useState } from "react";
 
 const StyledLink = styled.a`
@@ -105,13 +105,9 @@ const IniciarSesion = styled.button`
   }
 `;
 
-const Nav = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-
-  function openModal() {
-    setModalVisible(!modalVisible);
-  }
-
+const Nav = props => {
+  const { modalVisible, handleModalVisible, signIn } = props;
+  console.log("Prop del modal", modalVisible);
   return (
     <>
       <StyledNav>
@@ -124,10 +120,15 @@ const Nav = () => {
         <Link href="/workshops">
           <StyledLink>Workshops</StyledLink>
         </Link>
-        <Registrarse onClick={openModal}>Registrarse</Registrarse>
+        <Registrarse onClick={handleModalVisible}>Registrarse</Registrarse>
         <IniciarSesion>Iniciar Sesion</IniciarSesion>
       </StyledNav>
-      {modalVisible && <Login openModal={openModal}></Login>}
+      {modalVisible == true && (
+        <SignIn
+          handleModalVisible={handleModalVisible}
+          signIn={signIn}
+        ></SignIn>
+      )}
     </>
   );
 };
