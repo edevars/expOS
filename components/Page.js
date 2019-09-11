@@ -59,15 +59,21 @@ class Page extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalVisible: false
+      modalSignInlVisible: false,
+      modalLogInVisible: false
     };
   }
 
-  handleModalVisible = () => {
+  handleModalSignInVisible = () => {
     this.setState({
-      modalVisible: !this.state.modalVisible
+      modalSignInlVisible: !this.state.modalSignInlVisible
     });
-    console.log("Manejo de modal", this.state.modalVisible);
+  };
+
+  handleModalLogInVisible = () => {
+    this.setState({
+      modalLogInVisible: !this.state.modalLogInVisible
+    });
   };
 
   componentDidMount() {
@@ -96,7 +102,7 @@ class Page extends Component {
         auth.signOut();
 
         welcomeMessage();
-        this.modalVisible();
+        this.handleModalSignInVisible();
       })
       .catch(e => {
         errorMessage(e);
@@ -110,8 +116,10 @@ class Page extends Component {
         <>
           <Meta />
           <Nav
-            modalVisible={this.state.modalVisible}
-            handleModalVisible={this.handleModalVisible}
+            modalSignInlVisible={this.state.modalSignInlVisible}
+            handleModalSignInVisible={this.handleModalSignInVisible}
+            modalLogInVisible={this.state.modalLogInVisible}
+            handleModalLogInVisible={this.handleModalLogInVisible}
             signIn={this.signIn}
           />
           <GlobalStyled></GlobalStyled>

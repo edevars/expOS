@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-const MySwal = withReactContent(Swal);
-
-import { auth } from "../../firebase";
 
 const Modal = styled.div`
   height: 100vh;
@@ -48,6 +43,9 @@ const Form = styled.form`
     font-weight: bold;
     height: 50px;
     background-color: ${props => props.theme.color1};
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -85,59 +83,14 @@ const FormWrapper = styled.div`
   display: flex;
 `;
 
-const Login = props => {
-  const [name, useName] = useState("");
+const SignIn = props => {
   const [email, useEmail] = useState("");
   const [password, usePassword] = useState("");
-
-  const errorMessage = () => {
-    MySwal.fire({
-      type: "error",
-      title: "Oops...",
-      text: "Algo salio mal"
-    });
-  };
-
-  const welcomeMessage = () => {
-    MySwal.fire(
-      "Se ha creado tu cuenta",
-      "Por favor verifica tu email para poder acceder",
-      "success"
-    );
-  };
-
-  const crearCuenta = (name, email, password) => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(result => {
-        result.user.updateProfile({
-          displayName: name
-        });
-
-        const config = {
-          url: "http://localhost:3000/"
-        };
-
-        result.user.sendEmailVerification(config).catch(e => {
-          console.error(e);
-          errorMessage();
-        });
-
-        auth.signOut();
-
-        welcomeMessage();
-        props.openModal();
-      })
-      .catch(e => {
-        console.error(e);
-        errorMessage();
-      });
-  };
 
   return (
     <Modal>
       <FormWrapper>
-        <Button onClick={props.openModal}>
+        <Button onClick={props.handleModalLogInVisible}>
           <StyledFontAwesomeIcon icon={faTimesCircle} />
         </Button>
         <Form
@@ -145,16 +98,7 @@ const Login = props => {
             e.preventDefault();
           }}
         >
-          <Title>Registrate</Title>
-          <label>Nombre</label>
-          <br />
-          <input
-            type="text"
-            className="input"
-            name="name"
-            placeholder="Hola amigo!"
-            onChange={e => useName(e.target.value)}
-          />
+          <Title>Iniciar Sesión</Title>
           <br />
           <label>Correo</label>
           <br />
@@ -163,6 +107,7 @@ const Login = props => {
             className="input"
             name="email"
             placeholder="youremail@example.com"
+            autoComplete="username"
             onChange={e => useEmail(e.target.value)}
           />
           <label>Contraseña</label>
@@ -171,22 +116,16 @@ const Login = props => {
             type="password"
             className="input"
             name="password"
+            autoComplete="current-password"
             onChange={e => usePassword(e.target.value)}
           />
           <br />
           <br />
-          <input
-            type="submit"
-            className="submit"
-            value="Submit"
-            onClick={() => {
-              crearCuenta(name, email, password);
-            }}
-          ></input>
+          
         </Form>
       </FormWrapper>
     </Modal>
   );
 };
 
-export default Login;
+export default SignIn;

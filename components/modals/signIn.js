@@ -91,7 +91,7 @@ const SignIn = props => {
   return (
     <Modal>
       <FormWrapper>
-        <Button onClick={props.handleModalVisible}>
+        <Button onClick={props.handleModalSignInVisible}>
           <StyledFontAwesomeIcon icon={faTimesCircle} />
         </Button>
         <Form

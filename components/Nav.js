@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import SignIn from "./modals/signIn";
-import React, { useState } from "react";
+import LogIn from "./modals/logIn";
 
 const StyledLink = styled.a`
   color: white;
@@ -106,8 +106,14 @@ const IniciarSesion = styled.button`
 `;
 
 const Nav = props => {
-  const { modalVisible, handleModalVisible, signIn } = props;
-  console.log("Prop del modal", modalVisible);
+  const {
+    modalSignInlVisible,
+    handleModalSignInVisible,
+    modalLogInVisible,
+    handleModalLogInVisible,
+    signIn
+  } = props;
+
   return (
     <>
       <StyledNav>
@@ -120,14 +126,21 @@ const Nav = props => {
         <Link href="/workshops">
           <StyledLink>Workshops</StyledLink>
         </Link>
-        <Registrarse onClick={handleModalVisible}>Registrarse</Registrarse>
-        <IniciarSesion>Iniciar Sesion</IniciarSesion>
+        <Registrarse onClick={handleModalSignInVisible}>
+          Registrarse
+        </Registrarse>
+        <IniciarSesion onClick={handleModalLogInVisible}>
+          Iniciar Sesion
+        </IniciarSesion>
       </StyledNav>
-      {modalVisible == true && (
+      {modalSignInlVisible == true && (
         <SignIn
-          handleModalVisible={handleModalVisible}
+          handleModalSignInVisible={handleModalSignInVisible}
           signIn={signIn}
         ></SignIn>
+      )}
+      {modalLogInVisible == true && (
+        <LogIn handleModalLogInVisible={handleModalLogInVisible}></LogIn>
       )}
     </>
   );
