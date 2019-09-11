@@ -1,7 +1,5 @@
 import Link from "next/link";
 import styled from "styled-components";
-import SignIn from "./modals/signIn";
-import LogIn from "./modals/logIn";
 
 const StyledLink = styled.a`
   color: white;
@@ -106,43 +104,18 @@ const IniciarSesion = styled.button`
 `;
 
 const Nav = props => {
-  const {
-    modalSignInlVisible,
-    handleModalSignInVisible,
-    modalLogInVisible,
-    handleModalLogInVisible,
-    signIn
-  } = props;
-
   return (
-    <>
-      <StyledNav>
-        <Link href="/">
-          <StyledLink>Home</StyledLink>
-        </Link>
-        <Link href="/speakers">
-          <StyledLink>Speakers</StyledLink>
-        </Link>
-        <Link href="/workshops">
-          <StyledLink>Workshops</StyledLink>
-        </Link>
-        <Registrarse onClick={handleModalSignInVisible}>
-          Registrarse
-        </Registrarse>
-        <IniciarSesion onClick={handleModalLogInVisible}>
-          Iniciar Sesion
-        </IniciarSesion>
-      </StyledNav>
-      {modalSignInlVisible == true && (
-        <SignIn
-          handleModalSignInVisible={handleModalSignInVisible}
-          signIn={signIn}
-        ></SignIn>
-      )}
-      {modalLogInVisible == true && (
-        <LogIn handleModalLogInVisible={handleModalLogInVisible}></LogIn>
-      )}
-    </>
+    <StyledNav>
+      <Link href="/">
+        <StyledLink>Home</StyledLink>
+      </Link>
+      <Link href="/speakers">
+        <StyledLink>Speakers</StyledLink>
+      </Link>
+      <Link href="/workshops">
+        <StyledLink>Workshops</StyledLink>
+      </Link>
+    </StyledNav>
   );
 };
 

@@ -2,16 +2,6 @@ import React, { Component } from "react";
 import Meta from "./Meta";
 import Nav from "./Nav";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
-import client from "../credentials/client";
-
-//firebase
-import firebase from "firebase/app";
-import "firebase/auth";
-
-//alerts
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-const MySwal = withReactContent(Swal);
 
 const GlobalStyled = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
@@ -39,89 +29,13 @@ const theme = {
   }
 };
 
-const errorMessage = e => {
-  MySwal.fire({
-    type: "error",
-    title: "Oops...",
-    text: `Algo salio mal: ${e}`
-  });
-};
-
-const welcomeMessage = () => {
-  MySwal.fire(
-    "Se ha creado tu cuenta",
-    "Por favor verifica tu email para poder acceder",
-    "success"
-  );
-};
-
 class Page extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalSignInlVisible: false,
-      modalLogInVisible: false
-    };
-  }
-
-  handleModalSignInVisible = () => {
-    this.setState({
-      modalSignInlVisible: !this.state.modalSignInlVisible
-    });
-  };
-
-  handleModalLogInVisible = () => {
-    this.setState({
-      modalLogInVisible: !this.state.modalLogInVisible
-    });
-  };
-
-  componentDidMount() {
-    firebase.initializeApp(client);
-  }
-
-  signIn = (name, email, password) => {
-    const auth = firebase.auth();
-
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(result => {
-        result.user.updateProfile({
-          displayName: name
-        });
-
-        const config = {
-          url: "http://localhost:3000/"
-        };
-
-        result.user.sendEmailVerification(config).catch(e => {
-          errorMessage(e);
-          console.error(e);
-        });
-
-        auth.signOut();
-
-        welcomeMessage();
-        this.handleModalSignInVisible();
-      })
-      .catch(e => {
-        errorMessage(e);
-        console.error(e);
-      });
-  };
-
   render() {
     return (
       <ThemeProvider theme={theme}>
         <>
           <Meta />
-          <Nav
-            modalSignInlVisible={this.state.modalSignInlVisible}
-            handleModalSignInVisible={this.handleModalSignInVisible}
-            modalLogInVisible={this.state.modalLogInVisible}
-            handleModalLogInVisible={this.handleModalLogInVisible}
-            signIn={this.signIn}
-          />
+          <Nav />
           <GlobalStyled></GlobalStyled>
           {this.props.children}
         </>
