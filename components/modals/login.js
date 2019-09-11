@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
+import { auth } from "../../firebase";
 
 const Modal = styled.div`
   height: 100vh;
@@ -23,7 +28,7 @@ const Form = styled.form`
   width: 400px;
   height: 100%;
 
-  label{
+  label {
     font-size: 1.3rem;
     margin-top: 50px;
   }
@@ -36,7 +41,7 @@ const Form = styled.form`
     border-bottom: 2px solid ${props => props.theme.color2};
     outline: none;
   }
-  .submit{
+  .submit {
     width: 100%;
     color: ${props => props.theme.light};
     font-size: 1.3rem;
@@ -80,44 +85,108 @@ const FormWrapper = styled.div`
   display: flex;
 `;
 
-const Login = props => (
-  <Modal>
-    <FormWrapper>
-      <Button onClick={props.openModal}>
-        <StyledFontAwesomeIcon icon={faTimesCircle} />
-      </Button>
-      <Form
-        onSubmit={e => {
-          e.preventDefault();
-        }}
-      >
-        <Title>Registrate</Title>
-        <label>Nombre</label>
-        <br />
-        <input
-          type="text"
-          className="input"
-          name="name"
-          placeholder="Hola amigo!"
-        />
-        <br />
-        <label>Correo</label>
-        <br />
-        <input
-          type="email"
-          className="input"
-          name="email"
-          placeholder="youremail@example.com"
-        />
-        <label>Contraseña</label>
-        <br />
-        <input type="password" className="input" name="password" />
-        <br />
-        <br />
-        <input type="submit" className="submit"value="Submit"></input>
-      </Form>
-    </FormWrapper>
-  </Modal>
-);
+const Login = props => {
+  const [name, useName] = useState("");
+  const [email, useEmail] = useState("");
+  const [password, usePassword] = useState("");
+
+  const errorMessage = () => {
+    MySwal.fire({
+      type: "error",
+      title: "Oops...",
+      text: "Algo salio mal"
+    });
+  };
+
+  const welcomeMessage = () => {
+    MySwal.fire(
+      "Se ha creado tu cuenta",
+      "Por favor verifica tu email para poder acceder",
+      "success"
+    );
+  };
+
+  const crearCuenta = (name, email, password) => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(result => {
+        result.user.updateProfile({
+          displayName: name
+        });
+
+        const config = {
+          url: "http://localhost:3000/"
+        };
+
+        result.user.sendEmailVerification(config).catch(e => {
+          console.error(e);
+          errorMessage();
+        });
+
+        auth.signOut();
+
+        welcomeMessage();
+        props.openModal();
+      })
+      .catch(e => {
+        console.error(e);
+        errorMessage();
+      });
+  };
+
+  return (
+    <Modal>
+      <FormWrapper>
+        <Button onClick={props.openModal}>
+          <StyledFontAwesomeIcon icon={faTimesCircle} />
+        </Button>
+        <Form
+          onSubmit={e => {
+            e.preventDefault();
+          }}
+        >
+          <Title>Registrate</Title>
+          <label>Nombre</label>
+          <br />
+          <input
+            type="text"
+            className="input"
+            name="name"
+            placeholder="Hola amigo!"
+            onChange={e => useName(e.target.value)}
+          />
+          <br />
+          <label>Correo</label>
+          <br />
+          <input
+            type="email"
+            className="input"
+            name="email"
+            placeholder="youremail@example.com"
+            onChange={e => useEmail(e.target.value)}
+          />
+          <label>Contraseña</label>
+          <br />
+          <input
+            type="password"
+            className="input"
+            name="password"
+            onChange={e => usePassword(e.target.value)}
+          />
+          <br />
+          <br />
+          <input
+            type="submit"
+            className="submit"
+            value="Submit"
+            onClick={() => {
+              crearCuenta(name, email, password);
+            }}
+          ></input>
+        </Form>
+      </FormWrapper>
+    </Modal>
+  );
+};
 
 export default Login;
