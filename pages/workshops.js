@@ -13,12 +13,18 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   color: ${props => props.theme.color1};
   font-size: 100px;
   margin: auto 20px;
+  @media screen and (max-width: 425px) {
+    margin: 0 auto;
+  }
 `;
 
 const Title = styled.h1`
   color: ${props => props.theme.color1};
   text-align: center;
   font-size: 5rem;
+  @media screen and (max-width: 425px) {
+    font-size: 3rem;
+  }
 `;
 
 const Div = styled.div`
@@ -47,6 +53,10 @@ const WorkshopsItem = styled.div`
     color: ${props => props.theme.color3};
     margin: 15px 70px;
   }
+
+  @media screen and (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Content = styled.div`
@@ -62,8 +72,8 @@ const Link = styled.a`
   background-color: ${props => props.theme.color2};
   color: ${props => props.theme.light};
   text-align: center;
-  padding: 5px 10px; 
-  &:hover{
+  padding: 5px 10px;
+  &:hover {
     cursor: pointer;
   }
 `;
