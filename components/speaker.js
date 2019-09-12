@@ -91,17 +91,15 @@ const Speaker = props => {
       </ImageWrapper>
       <Info>
         <Title>{props.title || "Titulo"}</Title>
-        <p className="name">{props.name || "Nombre Speaker"}</p>
         <p className="date">
           {props.time || "00:00hrs"} | {props.date || "18 de septiembre 2019"}
         </p>
-        <Description>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-          laboriosam incidunt deserunt animi alias beatae ullam ducimus. Quas
-          odio reprehenderit aliquid dignissimos quaerat dolorum, vitae neque,
-          sed impedit deserunt culpa?
-        </Description>
-        <Link href={props.link || " "} target="_blank">Asistir</Link>
+        <Description>{props.description}</Description>
+        <p className="name" style={props.ciber || {}}>{props.name || "Nombre Speaker"}</p>
+        <Description>{props.speaker}</Description>
+        <Link href={props.link || " "} target="_blank">
+          Asistir
+        </Link>
       </Info>
     </SpeakerWrapper>
   );

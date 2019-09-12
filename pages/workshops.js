@@ -88,7 +88,7 @@ const Home = () => (
           <Content>
             <h3>Introducción a Linux</h3>
             <Link
-              href="https://docs.google.com/forms/d/1PwOUM4ZGI_W8DKIYvOCgS6QYeN2m7PKApgV8M5Dawgk/prefill"
+              href="https://forms.gle/KbS25CeiYKwvRm9V9"
               target="_blank"
             >
               Registrarse
@@ -100,7 +100,7 @@ const Home = () => (
           <Content>
             <h3>Python for No0bs</h3>
             <Link
-              href="https://docs.google.com/forms/d/1pfiOnf32hdkNuvKFYNjifdNjR3trKYdr8gj7yM6fbN8/prefill"
+              href="https://forms.gle/xmHhByaQ4S95sT8N9"
               target="_blank"
             >
               Registrarse
@@ -110,9 +110,9 @@ const Home = () => (
         <WorkshopsItem>
           <StyledFontAwesomeIcon icon={faFileAlt}></StyledFontAwesomeIcon>
           <Content>
-            <h3>Introducción a Latex</h3>
+            <h3>Introducción a LATEX</h3>
             <Link
-              href="https://docs.google.com/forms/d/1Ppcz80Tgdq9t5Vu-jzxfxgbtYrpzbgjixajYpOKouLk/prefill"
+              href="https://forms.gle/rRQVGo4Qhp5gRm1z8"
               target="_blank"
             >
               Registrarse
@@ -124,7 +124,7 @@ const Home = () => (
           <Content>
             <h3>Libera tu celular de las garras de google</h3>
             <Link
-              href="https://docs.google.com/forms/d/157sMvHa0cih0VBiLdlcIe_Jpzo8YQ4kUG31F_hDDsjA/prefill"
+              href="https://forms.gle/Q9qYPmcFQhu3pHaU7"
               target="_blank"
             >
               Registrarse
@@ -134,9 +134,9 @@ const Home = () => (
         <WorkshopsItem>
           <StyledFontAwesomeIcon icon={faCogs}></StyledFontAwesomeIcon>
           <Content>
-            <h3>Diseño de FreeCAD</h3>
+            <h3>Diseño con FreeCAD</h3>
             <Link
-              href="https://docs.google.com/forms/d/1jsOFPLlr61Rf-cAOA9uSy5gL1ceUAEzxYPvn16HT9O8/prefill"
+              href="https://forms.gle/dmJqjxd7uPSzvFNg9"
               target="_blank"
             >
               Registrarse
