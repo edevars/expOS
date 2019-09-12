@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Meta from "./Meta";
 import Nav from "./Nav";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
+import Footer from "./footer";
 
 const GlobalStyled = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
@@ -38,6 +39,7 @@ class Page extends Component {
           <Nav />
           <GlobalStyled></GlobalStyled>
           {this.props.children}
+          <Footer></Footer>
         </>
       </ThemeProvider>
     );

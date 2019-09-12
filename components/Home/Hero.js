@@ -4,7 +4,7 @@ import video from "./hero.mp4";
 import logo from "../../images/logo.png";
 
 const StyledHero = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 80vh;
   min-height: 650px;
   position: relative;
