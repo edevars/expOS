@@ -188,8 +188,8 @@ const Button = styled.button`
     margin-top: 15px;
     margin-left: 15px;
     z-index: 99999;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border: none;
     outline: none;
     border-radius: 50%;
