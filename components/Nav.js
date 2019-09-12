@@ -1,5 +1,14 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  color: ${props => props.theme.light};
+  font-size: 20px;
+  margin: auto auto;
+`;
 
 const StyledLink = styled.a`
   color: white;
@@ -56,6 +65,77 @@ const StyledLink = styled.a`
     -moz-transform: translateX(0px);
     transform: translateX(0px);
   }
+
+  @media screen and (max-width: 768px) {
+    all: unset;
+    width: 250px;
+    color: white;
+    border: 3px solid white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+
+    *:after,
+    *::before {
+      all: unset;
+      width: 250px;
+      color: white;
+      border: 3px solid white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    &::after,
+    &::before {
+      all: unset;
+      width: 250px;
+      color: white;
+      border: 3px solid white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    &::before {
+      all: unset;
+      width: 250px;
+      color: white;
+      border: 3px solid white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    &::after {
+      all: unset;
+      width: 250px;
+      color: white;
+      border: 3px solid white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    &:hover::before,
+    &:hover::after,
+    &:focus::before,
+    &:focus::after {
+      all: unset;
+      width: 250px;
+      color: white;
+      border: 3px solid white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+  }
 `;
 
 const StyledNav = styled.nav`
@@ -69,53 +149,99 @@ const StyledNav = styled.nav`
   top: 0;
   z-index: 2;
   width: 100%;
-`;
-
-const Registrarse = styled.button`
-  background-color: ${props => props.theme.color2};
-  color: ${props => props.theme.light};
-  border: none;
-  height: 30px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 1.05rem;
-  font-weight: bold;
-  outline: none;
-  margin-right: 50px;
-  &:hover {
-    cursor: pointer;
+  @media screen and (max-width: 768px) {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    background: rgba(50, 0, 66, 0.85);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99998;
   }
 `;
 
-const IniciarSesion = styled.button`
-  background-color: ${props => props.theme.color3};
-  color: ${props => props.theme.light};
-  border: none;
-  height: 30px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 1.05rem;
-  font-weight: bold;
-  margin-right: 50px;
-  outline: none;
-  &:hover {
-    cursor: pointer;
+const Toggle = styled.div`
+  @media screen and (max-width: 768px) {
+    .ToggleOff {
+      transition: 0.7s;
+      left: -100vw;
+    }
+    .ToggleOn {
+      transition: 0.7s;
+      left: 0;
+    }
   }
 `;
 
-const Nav = props => {
+const Button = styled.button`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-top: 15px;
+    margin-left: 15px;
+    z-index: 99999;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background: ${props => props.theme.color3};
+  }
+`;
+
+const Nav = () => {
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <StyledNav>
-      <Link href="/">
-        <StyledLink>Home</StyledLink>
-      </Link>
-      <Link href="/speakers">
-        <StyledLink>Speakers</StyledLink>
-      </Link>
-      <Link href="/workshops">
-        <StyledLink>Workshops</StyledLink>
-      </Link>
-    </StyledNav>
+    <Toggle>
+      <Button
+        onClick={() => {
+          setToggle(!toggle);
+        }}
+      >
+        <StyledFontAwesomeIcon icon={faBars}></StyledFontAwesomeIcon>
+      </Button>
+      <StyledNav className={toggle ? "ToggleOn" : "ToggleOff"}>
+        <Link href="/">
+          <StyledLink
+            onClick={() => {
+              setToggle(!toggle);
+              console.log("Cambiando de ruta");
+            }}
+          >
+            Home
+          </StyledLink>
+        </Link>
+        <Link href="/speakers">
+          <StyledLink
+            onClick={() => {
+              setToggle(!toggle);
+              console.log("Cambiando de ruta");
+            }}
+          >
+            Speakers
+          </StyledLink>
+        </Link>
+        <Link href="/workshops">
+          <StyledLink
+            onClick={() => {
+              setToggle(!toggle);
+              console.log("Cambiando de ruta");
+            }}
+          >
+            Workshops
+          </StyledLink>
+        </Link>
+      </StyledNav>
+    </Toggle>
   );
 };
 
