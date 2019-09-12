@@ -45,11 +45,18 @@ const Title = styled.h1`
   color: ${props => props.theme.light};
   margin: 40px 0px 0px;
   font-size: 3.5rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const Counter = styled.h2`
   color: ${props => props.theme.light_dimmed};
   font-size: 2.3rem;
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Mask = styled.div`

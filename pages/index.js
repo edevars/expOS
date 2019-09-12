@@ -8,7 +8,8 @@ const HeroWrapper = styled.div`
   z-index: 0;
   height: auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Home = () => (

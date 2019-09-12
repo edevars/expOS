@@ -23,10 +23,27 @@ const Wrapper = styled.ul`
   #last {
     border-right: none;
   }
+  @media screen and (max-width: 1200px) {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    #last {
+      border-right: 2px solid ${props => props.theme.black};
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+  }
 `;
 
 const Item = styled.li`
-  height: 50%;
   width: 250px;
   padding: 0;
   margin: 0;
@@ -34,6 +51,14 @@ const Item = styled.li`
   display: grid;
   grid-template-columns: 30px auto;
   border-right: 2px solid ${props => props.theme.black};
+  @media screen and (max-width: 1200px) {
+    border-left: 2px solid ${props => props.theme.black};
+    padding: 40px;
+  }
+
+  @media screen and (max-width: 425px) {
+    padding: 20px;
+  }
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
@@ -50,8 +75,8 @@ const Subtitle = styled.h3`
 
 const DescriptionWrapper = styled.div`
   margin: 15px 0px 0px 20px;
-  p{
-    font-size: .8rem;
+  p {
+    font-size: 0.8rem;
   }
 `;
 
@@ -61,7 +86,10 @@ const InfoContainer = () => (
       <StyledFontAwesomeIcon icon={faMapMarkerAlt} />
       <DescriptionWrapper>
         <Subtitle>UPIITA IPN</Subtitle>
-        <p>Av Instituto Politécnico Nacional 2580, La Laguna Ticoman, 07340 Ciudad de México, CDMX</p>
+        <p>
+          Av Instituto Politécnico Nacional 2580, La Laguna Ticoman, 07340
+          Ciudad de México, CDMX
+        </p>
       </DescriptionWrapper>
     </Item>
     <Item>
