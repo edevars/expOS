@@ -214,7 +214,6 @@ const Nav = () => {
           <StyledLink
             onClick={() => {
               setToggle(!toggle);
-              console.log("Cambiando de ruta");
             }}
           >
             Home
@@ -224,7 +223,6 @@ const Nav = () => {
           <StyledLink
             onClick={() => {
               setToggle(!toggle);
-              console.log("Cambiando de ruta");
             }}
           >
             Speakers
@@ -234,7 +232,6 @@ const Nav = () => {
           <StyledLink
             onClick={() => {
               setToggle(!toggle);
-              console.log("Cambiando de ruta");
             }}
           >
             Workshops
