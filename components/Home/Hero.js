@@ -31,7 +31,7 @@ const StyledWrapper = styled.div`
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 `;
 
 const Logo = styled.img`
@@ -71,17 +71,18 @@ class Hero extends Component {
     now: new Date().getTime()
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.refs.vidRef.play();
-    setInterval(() => {
+    await this.calculateDate();
+  }
+
+  calculateDate = () => {
+    const timer = setInterval(() => {
       this.setState({
         finalDate: new Date("Sep 18, 2019 00:00:00").getTime(),
         now: new Date().getTime()
       });
     }, 1000);
-  }
-
-  calculateDate = () => {
     let distance = this.state.finalDate - this.state.now;
     let days = Math.floor(distance / (1000 * 60 * 60 * 24));
     let hours = Math.floor(
@@ -89,7 +90,10 @@ class Hero extends Component {
     );
     let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+    if (distance < 0) {
+      clearInterval(timer);
+      return "0d 0h 0m 0s";
+    }
     return days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   };
 
@@ -102,7 +106,7 @@ class Hero extends Component {
         <Mask></Mask>
         <StyledWrapper>
           <Logo src={logo}></Logo>
-          <Title>Solo falta!</Title>
+          <Title>¡Solo falta!</Title>
           <Counter>{this.calculateDate()}</Counter>
         </StyledWrapper>
       </StyledHero>
