@@ -44,6 +44,7 @@ const Speakers = () => (
         title="Diseño Libre: FreeCAD"
         date="18 de septiembre, 2019"
         time="13:00 hrs"
+        link="https://docs.google.com/forms/d/1BBCetbUUvN9e7HgL3Wcv18f8_jsyKpDD08jQkdUr1O0/prefill"
       ></Speaker>
       <Speaker
         image={EnriqueDevars}
@@ -51,6 +52,7 @@ const Speakers = () => (
         name="Enrique Devars Caballero"
         date="18 de septiembre, 2019"
         time="14:30 hrs"
+        link="https://docs.google.com/forms/d/1BBCetbUUvN9e7HgL3Wcv18f8_jsyKpDD08jQkdUr1O0/prefill"
       ></Speaker>
       <Speaker
         image={Fausto_Romero}
@@ -58,6 +60,7 @@ const Speakers = () => (
         name="José Fausto Romero Lujambio"
         date="18 de septiembre, 2019"
         time="16:00 hrs"
+        link="https://docs.google.com/forms/d/1wCOWwIZefes1B2xrNCm33VWIsC5rxfeprIyE-1hOxc8/prefill"
       ></Speaker>
       <Speaker
         image={DiegoBarriga}
@@ -65,12 +68,14 @@ const Speakers = () => (
         name="Diego Alberto Barriga Martínez"
         date="18 de septiembre, 2019"
         time="17:30 hrs"
+        link="https://docs.google.com/forms/d/1A8us8pNPmmi8QiC_e8GHStmj3Eitc4gbcv5LTFuFKlY/prefill"
       ></Speaker>
       <Speaker
         title="Ciberseguradad"
         name="Miguel Angel Gaspar Galicia"
         date="19 de septiembre, 2019"
         time="14:30 hrs"
+        link="https://docs.google.com/forms/d/1m6ODwsGfZxVEmAmn2EEWBRnJ7FK8TRS22Zo6l8li2rM/prefill"
       ></Speaker>
       <Speaker
         image={PaulAguilar}
@@ -78,6 +83,7 @@ const Speakers = () => (
         name="Paul Sebastian Aguilar Enriquez"
         date="19 de septiembre, 2019"
         time="16:00 hrs"
+        link="https://docs.google.com/forms/d/1h-16jUxKJxtGITw4UtZUVzf-7wW3z91CkNweFpA3DuU/prefill"
       ></Speaker>
       <Speaker
         image={Jorge_Hernandez}
@@ -85,6 +91,7 @@ const Speakers = () => (
         name="Jorge Hernandez Cigarroa"
         date="19 de septiembre, 2019"
         time="17:30 hrs"
+        link="https://docs.google.com/forms/d/1YQijiEF6pPGa9obdK8Xppl2KXmielnufGeuoP0y9-sA/prefill"
       ></Speaker>
       <Speaker
         image={Axel_Vargas_Sosa}
@@ -92,6 +99,7 @@ const Speakers = () => (
         name="Jorge Hernandez Cigarroa"
         date="19 de septiembre, 2019"
         time="17:30 hrs"
+        link="https://docs.google.com/forms/d/1PAafwGd0JK4Itxitgk4lF5w0LTKveekp1ysvbGTFi5o/prefill"
       ></Speaker>
     </SpeakersWrapper>
   </>

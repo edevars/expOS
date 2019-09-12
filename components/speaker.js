@@ -101,7 +101,7 @@ const Speaker = props => {
           odio reprehenderit aliquid dignissimos quaerat dolorum, vitae neque,
           sed impedit deserunt culpa?
         </Description>
-        <Link href={props.link || " "}>Asistir</Link>
+        <Link href={props.link || " "} target="_blank">Asistir</Link>
       </Info>
     </SpeakerWrapper>
   );
