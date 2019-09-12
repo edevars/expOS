@@ -1,13 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import Hero from "../components/Home/Hero";
+import Info from "../components/Home/info";
+import styled from "styled-components";
 
-const Title = styled.h1`
-    color: #ff009d;
+const HeroWrapper = styled.div`
+  position: relative;
+  z-index: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-
 const Home = () => (
-    <Title>Bienvenido a ExpOS</Title>
-)
+  <>
+    <HeroWrapper>
+      <Hero></Hero>
+      <Info></Info>
+    </HeroWrapper>
+  </>
+);
 
 export default Home;
