@@ -102,7 +102,7 @@ const InfoContainer = () => (
     <Item>
       <StyledFontAwesomeIcon icon={faMicrophoneAlt} />
       <DescriptionWrapper>
-        <Subtitle>Mas de 10 speakers</Subtitle>
+        <Subtitle>Más de 8 speakers</Subtitle>
         <p>Expertos y entusiastas del software libre</p>
       </DescriptionWrapper>
     </Item>

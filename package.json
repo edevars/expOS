@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "production": "yarn build && yarn start"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
