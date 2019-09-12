@@ -87,35 +87,60 @@ const Home = () => (
           <StyledFontAwesomeIcon icon={faLinux}></StyledFontAwesomeIcon>
           <Content>
             <h3>Introducción a Linux</h3>
-            <Link>Registrarse</Link>
+            <Link
+              href="https://docs.google.com/forms/d/1PwOUM4ZGI_W8DKIYvOCgS6QYeN2m7PKApgV8M5Dawgk/prefill"
+              target="_blank"
+            >
+              Registrarse
+            </Link>
           </Content>
         </WorkshopsItem>
         <WorkshopsItem>
           <StyledFontAwesomeIcon icon={faPython}></StyledFontAwesomeIcon>
           <Content>
             <h3>Python for No0bs</h3>
-            <Link>Registrarse</Link>
+            <Link
+              href="https://docs.google.com/forms/d/1pfiOnf32hdkNuvKFYNjifdNjR3trKYdr8gj7yM6fbN8/prefill"
+              target="_blank"
+            >
+              Registrarse
+            </Link>
           </Content>
         </WorkshopsItem>
         <WorkshopsItem>
           <StyledFontAwesomeIcon icon={faFileAlt}></StyledFontAwesomeIcon>
           <Content>
             <h3>Introducción a Latex</h3>
-            <Link>Registrarse</Link>
+            <Link
+              href="https://docs.google.com/forms/d/1Ppcz80Tgdq9t5Vu-jzxfxgbtYrpzbgjixajYpOKouLk/prefill"
+              target="_blank"
+            >
+              Registrarse
+            </Link>
           </Content>
         </WorkshopsItem>
         <WorkshopsItem>
           <StyledFontAwesomeIcon icon={faGoogle}></StyledFontAwesomeIcon>
           <Content>
             <h3>Libera tu celular de las garras de google</h3>
-            <Link>Registrarse</Link>
+            <Link
+              href="https://docs.google.com/forms/d/157sMvHa0cih0VBiLdlcIe_Jpzo8YQ4kUG31F_hDDsjA/prefill"
+              target="_blank"
+            >
+              Registrarse
+            </Link>
           </Content>
         </WorkshopsItem>
         <WorkshopsItem>
           <StyledFontAwesomeIcon icon={faCogs}></StyledFontAwesomeIcon>
           <Content>
             <h3>Diseño de FreeCAD</h3>
-            <Link>Registrarse</Link>
+            <Link
+              href="https://docs.google.com/forms/d/1jsOFPLlr61Rf-cAOA9uSy5gL1ceUAEzxYPvn16HT9O8/prefill"
+              target="_blank"
+            >
+              Registrarse
+            </Link>
           </Content>
         </WorkshopsItem>
       </WorkshopsWrappers>
