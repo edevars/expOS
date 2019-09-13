@@ -122,7 +122,7 @@ Jefe de área de sistemas de la información en contax 2017-2018
       <Speaker
         image={Axel_Vargas_Sosa}
         title="¡Blockchain a la vista!"
-        name="Jorge Hernandez Cigarroa"
+        name="Axel Vargas Sosa"
         date="19 de septiembre, 2019"
         time="17:30 hrs"
         link="https://forms.gle/nkQEftZiYkEJnnUE6"

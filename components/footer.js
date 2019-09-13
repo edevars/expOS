@@ -27,7 +27,7 @@ const LogoWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   @media screen and (max-width: 768px) {
-    padding: 50px;
+    margin-top: 50px;
   }
 `;
 
