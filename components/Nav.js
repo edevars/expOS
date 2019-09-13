@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link }from '../routes';
 import styled from "styled-components";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -210,7 +210,7 @@ const Nav = () => {
         <StyledFontAwesomeIcon icon={faBars}></StyledFontAwesomeIcon>
       </Button>
       <StyledNav className={toggle ? "ToggleOn" : "ToggleOff"}>
-        <Link href="/">
+        <Link route="/expo-os">
           <StyledLink
             onClick={() => {
               setToggle(!toggle);
@@ -219,7 +219,7 @@ const Nav = () => {
             Home
           </StyledLink>
         </Link>
-        <Link href="/speakers">
+        <Link route="/expo-os/speakers">
           <StyledLink
             onClick={() => {
               setToggle(!toggle);
@@ -228,7 +228,7 @@ const Nav = () => {
             Speakers
           </StyledLink>
         </Link>
-        <Link href="/workshops">
+        <Link route="/expo-os/workshops">
           <StyledLink
             onClick={() => {
               setToggle(!toggle);
