@@ -3,4 +3,8 @@ require("dotenv").config();
 
 const withPlugins = require("next-compose-plugins");
 
-module.exports = withPlugins([withAssetsImport]);
+const nextConfig = {
+  assetPrefix: "expo-os/"
+};
+
+module.exports = withPlugins([withAssetsImport],nextConfig);
